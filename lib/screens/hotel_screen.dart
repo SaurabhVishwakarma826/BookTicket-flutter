@@ -13,12 +13,12 @@ class HotelScreen extends StatelessWidget {
     final size = AppLayout.getSize(context);
     return  Container(
       width: size.width*0.6,
-      height: 350,
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 17),
-      margin: const EdgeInsets.only(top: 5, right: 17),
+      height: AppLayout.getHeight(350),
+      padding:  EdgeInsets.symmetric(horizontal: AppLayout.getWidth(15), vertical: AppLayout.getHeight(17)),
+      margin:  EdgeInsets.only(top: AppLayout.getHeight(5), right: AppLayout.getWidth(17)),
       decoration: BoxDecoration(
         color: Styles.primaryColor,
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(AppLayout.getHeight(24)),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.shade200,
@@ -34,18 +34,18 @@ class HotelScreen extends StatelessWidget {
             height: 180,
             decoration: BoxDecoration(
               color: Styles.primaryColor,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(AppLayout.getHeight(12)),
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage("assets/images/${hotel['image']}")
               )
             ),
           ),
-          Gap(10),
+          Gap(AppLayout.getHeight(15)),
           Text("${hotel['place']}",style: Styles.headLineStyle2.copyWith(color: Styles.kakiColor),),
-          Gap(5),
+          Gap(AppLayout.getHeight(5)),
           Text("${hotel['destination']}",style: Styles.headLineStyle3.copyWith(color: Colors.white),),
-          Gap(8),
+          Gap(AppLayout.getHeight(5)),
           Text("\$${hotel['price']}/night",style: Styles.headLineStyle2.copyWith(color: Styles.kakiColor),)
         ],
       ),

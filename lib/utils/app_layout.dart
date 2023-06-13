@@ -14,4 +14,12 @@ class AppLayout{
   static getScreenWidth(){
     return Get.width;
   }
+  static getHeight(pixels){
+    double x = getScreenHeight()/pixels;
+    return getScreenHeight()/x;
+  }
+  static getWidth(pixels){
+    double x = getScreenWidth()/pixels;
+    return getScreenWidth()/x;
+  }
 }

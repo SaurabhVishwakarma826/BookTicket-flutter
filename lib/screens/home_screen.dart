@@ -1,10 +1,12 @@
 import 'package:booktickets/screens/hotel_screen.dart';
 import 'package:booktickets/screens/ticket_view.dart';
 import 'package:booktickets/utils/app_info_list.dart';
+import 'package:booktickets/widget/double_text_widget.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import '../utils/app_layout.dart';
 import '../utils/app_styles.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -17,10 +19,10 @@ class HomeScreen extends StatelessWidget {
         body: ListView(
           children: [
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding:  EdgeInsets.symmetric(horizontal: AppLayout.getWidth(20)),
               child: Column(
                 children: [
-                  const Gap(40),
+                  Gap(AppLayout.getHeight(40)),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -28,7 +30,7 @@ class HomeScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text("Good Morning", style: Styles.headLineStyle3),
-                          Gap(5),
+                          Gap(AppLayout.getHeight(5)),
                           Text(
                             "Book Tickets",
                             style: Styles.headLineStyle1,
@@ -36,22 +38,22 @@ class HomeScreen extends StatelessWidget {
                         ],
                       ),
                       Container(
-                        height: 50,
-                        width: 50,
+                        height: AppLayout.getHeight(50),
+                        width: AppLayout.getWidth(50),
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(AppLayout.getHeight(10)),
                             image: const DecorationImage(
                                 fit: BoxFit.cover,
                                 image: AssetImage("assets/images/img_1.png"))),
                       )
                     ],
                   ),
-                  Gap(25),
+                  Gap(AppLayout.getHeight(20)),
                   Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 12, vertical: 12),
+                    padding:  EdgeInsets.symmetric(
+                        horizontal: AppLayout.getWidth(12), vertical: AppLayout.getHeight(12)),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(AppLayout.getHeight(10)),
                       color: Color(0xFFF4F6FD),
                     ),
                     child: Row(
@@ -67,54 +69,28 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Gap(40),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Upcoming Flight",
-                        style: Styles.headLineStyle2,
-                      ),
-                      InkWell(
-                          onTap: () {
-                            print("Yor are tapped");
-                          },
-                          child: Text(
-                            "View all",
-                            style: Styles.headLineStyle4,
-                          ))
-                    ],
-                  ),
+                  Gap(AppLayout.getHeight(40)),
+                  AppDoubleTextWidget(bigText: "Upcoming Flight", smallText: "View all"),
                 ],
               ),
             ),
-            Gap(15),
+            Gap(AppLayout.getHeight(15)),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              padding: EdgeInsets.only(left: 20),
+              padding: EdgeInsets.only(left: AppLayout.getHeight(15)),
               child: Row(
                 children: ticketList.map((ticket) => TicketView(ticket: ticket)).toList()
               ),
             ),
-            Gap(15),
+            Gap(AppLayout.getHeight(15)),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-             child: Row(
-               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-               children: [
-                 Text("Htels",style: Styles.headLineStyle2,),
-                 InkWell(
-                   onTap: (){
-                     print("You are tapped on view more");
-                   },
-                     child: Text("View more",style: Styles.headLineStyle4,))
-               ],
-             ),
+              padding: EdgeInsets.symmetric(horizontal: AppLayout.getWidth(20)),
+             child: AppDoubleTextWidget(bigText:"Hotels", smallText: "View more",)
             ),
-            Gap(15),
+            Gap(AppLayout.getHeight(15)),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.only(left: 20),
+              padding:  EdgeInsets.only(left: AppLayout.getHeight(15)),
               child: Row(
                 children: hotelList.map((hotel) => HotelScreen(hotel: hotel)).toList()
               ),
